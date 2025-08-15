@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikael Teo - Writer Portfolio</title>
+    
+    <!-- Meta tags for social sharing -->
+    <meta name="description" content="I craft complete worlds in a few carefully chosen words. Each flash fiction piece is a universe compressed into a single breath—where every word carries the weight of entire stories.">
+    <meta name="author" content="Mikael Teo">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mikael Teo - Flash Fiction Writer">
+    <meta property="og:description" content="I craft complete worlds in a few carefully chosen words. Each flash fiction piece is a universe compressed into a single breath—where every word carries the weight of entire stories.">
+    <meta property="og:author" content="Mikael Teo">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mikael Teo - Flash Fiction Writer">
+    <meta name="twitter:description" content="I craft complete worlds in a few carefully chosen words. Each flash fiction piece is a universe compressed into a single breath—where every word carries the weight of entire stories.">
+    <meta name="twitter:creator" content="@mikaelteo">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f8f8f0 0%, #e8e8e8 100%);
+            color: #2c2c2c;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        /* Top Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 60px;
+            border-bottom: 1px solid rgba(102, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background: #660000;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 2px solid #A0522D;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #660000;
+            padding: 8px 15px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+            font-family: Georgia, serif;
+        }
+        
+        .social-icon:hover {
+            background: #A0522D;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Hero About Section */
+        .hero-about {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #e0e0e0;
+            border: 3px solid #660000;
+            opacity: 0.1;
+        }
+        
+        .hero-background::after {
+            content: 'Background Image Placeholder';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #660000;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+            opacity: 0.9;
+            border: 2px solid #8B0000;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #660000;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            font-family: Georgia, serif;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .hero-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            color: #444;
+        }
+        
+        /* Book Feature Section */
+        .book-section {
+            padding: 80px 60px;
+            background: linear-gradient(45deg, #660000, #A0522D);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .book-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .book-content h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .book-title {
+            font-size: 1.5rem;
+            color: #f5f5dc;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .book-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        /* Flash Fiction Section */
+        .flash-section {
+            padding: 80px 60px;
+            background: #f8f8f8;
+        }
+        
+        .flash-section h2 {
+            font-size: 1.8rem;
+            color: #660000;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        .flash-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .flash-piece {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .flash-piece:last-child {
+            margin-bottom: 0;
+        }
+        
+        .flash-number {
+            font-size: 1.6rem;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .flash-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            margin-bottom: 12px;
+            border: 2px solid #8B0000;
+        }
+        
+        .flash-piece:hover .flash-image {
+            opacity: 1;
+        }
+        
+        .flash-piece h3 {
+            font-size: 1.4rem;
+            color: #660000;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .flash-story {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #444;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .flash-story::before,
+        .flash-story::after {
+            content: '"';
+            font-size: 4rem;
+            color: #A0522D;
+            position: absolute;
+            font-family: Georgia, serif;
+            opacity: 0.3;
+        }
+        
+        .flash-story::before {
+            top: 0;
+            left: -30px;
+        }
+        
+        .flash-story::after {
+            bottom: -20px;
+            right: -30px;
+        }
+        
+        .flash-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #A0522D, transparent);
+            margin: 45px auto;
+        }
+        
+        /* Short Stories Section */
+        .stories-section {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #f5f5dc 0%, #e8e8e8 100%);
+        }
+        
+        .stories-section h2 {
+            font-size: 1.8rem;
+            color: #660000;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        
+        .stories-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-item {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .story-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #660000, #A0522D);
+            transition: width 0.3s ease;
+        }
+        
+        .story-item:hover::after {
+            width: 100%;
+        }
+        
+        .story-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .story-content {
+            flex: 1;
+        }
+        
+        .story-item h3 {
+            font-size: 1.2rem;
+            color: #660000;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .story-excerpt {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .story-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        /* Subscribe Section */
+        .subscribe-section {
+            padding: 60px 60px;
+            background: #660000;
+            text-align: center;
+        }
+        
+        .big-ebook-cover {
+            width: 195px;
+            height: 195px;
+            background: #f0f0e8;
+            border: 3px solid #A0522D;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #660000;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-section h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 300;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            font-size: 0.9rem;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+        }
+        
+        .subscribe-form button {
+            padding: 12px 25px;
+            background: #A0522D;
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .subscribe-form button:hover {
+            background: #8B4513;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 10px 25px;
+            }
+            
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .hero-about, .flash-section, .stories-section, .subscribe-section {
+                padding: 40px 25px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .story-item {
+                padding: 20px;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .subscribe-form input, .subscribe-form button {
+                border-radius: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo-placeholder">LOGO</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mikael.teo/" target="_blank" class="social-icon">
+                    <span>IG</span>
+                    <span>Follow</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero About Section -->
+    <section class="hero-about">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Mikael Teo</h1>
+                <p class="subtitle">Flash fiction writer</p>
+                <p>I craft complete worlds in a few carefully chosen words. Each flash fiction piece is a universe compressed into a single breath—where every word carries the weight of entire stories.</p>
+                <p>My work explores the infinite possibilities that live in the spaces between words, the moments that change everything, and the power of constraint to unlock boundless creativity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Feature Section -->
+    <section class="book-section">
+        <div class="book-content">
+            <h2>Coming Soon</h2>
+            <h3 class="book-title">Fragments of Light</h3>
+            <p>A collection of 100 flash fiction pieces, each exactly 25 words. Stories that shimmer like light through a prism—brief, brilliant, and transformative.</p>
+            <p>Pre-order Spring 2025</p>
+        </div>
+    </section>
+
+    <!-- Flash Fiction Section -->
+    <section class="flash-section">
+        <h2>Flash Fiction</h2>
+        <div class="flash-container">
+            
+            <div class="flash-piece">
+                <div class="flash-number">I</div>
+                <div style="width: 200px; height: 200px; background: #f0f0e8; border: 2px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.7rem; margin-bottom: 12px;">Image</div>
+                <h3>Space for Rent</h3>
+                <p class="flash-story">Space for rent: Major renovations required. Four inch square. Located in chest cavity.</p>
+            </div>
+            
+            <div class="flash-divider"></div>
+            
+            <div class="flash-piece">
+                <div class="flash-number">II</div>
+                <div style="width: 200px; height: 200px; background: #f0f0e8; border: 2px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.7rem; margin-bottom: 12px;">Image</div>
+                <h3>Round Mouth</h3>
+                <p class="flash-story">She said nothing. He feeds her another grape, a big red seedless Aussie. Still, nothing. He forgot to inflate her.</p>
+            </div>
+            
+            <div class="flash-divider"></div>
+            
+            <div class="flash-piece">
+                <div class="flash-number">III</div>
+                <div style="width: 200px; height: 200px; background: #f0f0e8; border: 2px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.7rem; margin-bottom: 12px;">Image</div>
+                <h3>Baby Shoes</h3>
+                <p class="flash-story">For sale: Chinese Baby shoes. Well borrowed.</p>
+            </div>
+            
+            <div class="flash-divider"></div>
+            
+            <div class="flash-piece">
+                <div class="flash-number">IV</div>
+                <div style="width: 200px; height: 200px; background: #f0f0e8; border: 2px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.7rem; margin-bottom: 12px;">Image</div>
+                <h3>Girls</h3>
+                <p class="flash-story">There once was a girl. A girl. A girl. A girl. One fell off the wagon. How many? Three. Theresa, Diana, Mary. No boys? No boys. Peace.</p>
+            </div>
+            
+            <div class="flash-divider"></div>
+            
+            <div class="flash-piece">
+                <div class="flash-number">V</div>
+                <div style="width: 200px; height: 200px; background: #f0f0e8; border: 2px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.7rem; margin-bottom: 12px;">Image</div>
+                <h3>The Good Fit</h3>
+                <p class="flash-story">Circles cannot fit into triangles, stars cannot fit into squares, triangles cannot fit into stars. He cries deafeningly. Silence. Lollipop fits into all hole shapes.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Short Stories Section -->
+    <section class="stories-section">
+        <h2>Short Stories</h2>
+        <div class="stories-container">
+            <div class="story-item">
+                <div style="width: 100px; height: 150px; background: #f0f0e8; border: 3px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.8rem; flex-shrink: 0;">Image</div>
+                <div class="story-content">
+                    <h3>Dear Ying</h3>
+                    <p class="story-excerpt">A stalker in the house. But the tender kind. Letting go is hard, but inevitable.</p>
+                    <div class="story-meta">
+                        <span>Genre: Drama</span>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-item">
+                <div style="width: 100px; height: 150px; background: #f0f0e8; border: 3px solid #660000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #660000; font-size: 0.8rem; flex-shrink: 0;">Image</div>
+                <div class="story-content">
+                    <h3>The Woman of Phnom Penh</h3>
+                    <p class="story-excerpt">Her name, carved into the oblong-ish brown headstone, crude san serif-like. A direct flight to Phnom Penh from Atlanta; nineteen hours and one minute is a long time to ferment and manifest the turmoil she buried in the tenebrous pit of her heart for thirty one years.</p>
+                    <div class="story-meta">
+                        <span>Genre: Drama</span>
+                        <span>15 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section">
+        <!-- BIG E-book cover at the very top -->
+        <div class="big-ebook-cover">FREE E-BOOK</div>
+        
+        <h2>Stay Connected</h2>
+        <p>Subscribe for a free short story collection and for updates on new stories, publications, and upcoming book releases. For other enquiries, please write to Mikaelteo@yahoo.com</p>
+        
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+</body>
+</html>

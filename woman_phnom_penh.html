@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Woman of Phnom Penh - Mikael Teo</title>
+    
+    <!-- Meta tags for social sharing -->
+    <meta name="description" content="Her name, carved into the oblong-ish brown headstone, crude san serif-like. A direct flight to Phnom Penh from Atlanta; nineteen hours and one minute is a long time to ferment and manifest the turmoil she buried in the tenebrous pit of her heart for thirty one years.">
+    <meta name="author" content="Mikael Teo">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Woman of Phnom Penh">
+    <meta property="og:description" content="Her name, carved into the oblong-ish brown headstone, crude san serif-like. A direct flight to Phnom Penh from Atlanta; nineteen hours and one minute is a long time to ferment and manifest the turmoil she buried in the tenebrous pit of her heart for thirty one years.">
+    <meta property="og:author" content="Mikael Teo">
+    <meta property="article:author" content="Mikael Teo">
+    <meta property="article:published_time" content="2024-01-01">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Woman of Phnom Penh">
+    <meta name="twitter:description" content="Her name, carved into the oblong-ish brown headstone, crude san serif-like. A direct flight to Phnom Penh from Atlanta; nineteen hours and one minute is a long time to ferment and manifest the turmoil she buried in the tenebrous pit of her heart for thirty one years.">
+    <meta name="twitter:creator" content="@mikaelteo">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f5dc 0%, #e8e8e8 100%);
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding-top: 80px;
+        }
+        
+        /* Top Navigation - EXACTLY LIKE HOMEPAGE */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 60px;
+            border-bottom: 1px solid rgba(102, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background: #660000;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 2px solid #A0522D;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #660000;
+            padding: 8px 15px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+            font-family: Georgia, serif;
+        }
+        
+        .social-icon:hover {
+            background: #A0522D;
+        }
+        
+        /* Story Navigation Arrows */
+        .story-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .story-nav.prev {
+            left: 20px;
+        }
+        
+        .story-nav.next {
+            right: 20px;
+        }
+        
+        .story-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(102, 0, 0, 0.9);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid #A0522D;
+            max-width: 140px;
+        }
+        
+        .story-nav-link:hover {
+            background: rgba(160, 82, 45, 0.9);
+            transform: scale(1.05);
+        }
+        
+        .nav-arrow {
+            font-size: 1rem;
+            color: #A0522D;
+        }
+        
+        .nav-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        
+        .nav-label {
+            font-size: 0.5rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-title {
+            font-size: 0.6rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        /* Story Container */
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .story-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #660000;
+        }
+        
+        .story-title {
+            font-size: 2.5rem;
+            color: #660000;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .story-author {
+            font-size: 1.1rem;
+            color: #A0522D;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .story-meta {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .story-content p:first-child {
+            margin-top: 0;
+        }
+        
+        .story-content p:last-child {
+            margin-bottom: 0;
+            text-align: center;
+            font-style: italic;
+            color: #660000;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+        
+        /* Navigation Footer */
+        .story-footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .share-story {
+            display: inline-block;
+            background: transparent;
+            color: #660000;
+            padding: 12px 30px;
+            border: 2px solid #660000;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .share-story:hover {
+            background: #660000;
+            color: white;
+        }
+        
+        .share-menu {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            padding: 15px;
+            margin-bottom: 10px;
+            min-width: 200px;
+        }
+        
+        .share-menu.active {
+            display: block;
+        }
+        
+        .share-option {
+            display: block;
+            background: transparent;
+            color: #660000;
+            padding: 8px 20px;
+            border: 1px solid #660000;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .share-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .share-option:hover {
+            background: #660000;
+            color: white;
+        }
+        
+        /* Subscribe Section - EXACTLY LIKE HOMEPAGE */
+        .subscribe-section {
+            padding: 60px 60px;
+            background: #660000;
+            text-align: center;
+        }
+        
+        .big-ebook-cover {
+            width: 195px;
+            height: 195px;
+            background: #f0f0e8;
+            border: 3px solid #A0522D;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #660000;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-section h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 300;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            font-size: 0.9rem;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+        }
+        
+        .subscribe-form button {
+            padding: 12px 25px;
+            background: #A0522D;
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .subscribe-form button:hover {
+            background: #8B4513;
+        }
+        
+        /* Reading Progress Indicator */
+        .reading-progress {
+            position: fixed;
+            top: 79px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #660000, #A0522D);
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 10px 20px;
+            }
+            
+            .story-container {
+                margin: 20px;
+                padding: 40px 20px;
+            }
+            
+            .story-title {
+                font-size: 2rem;
+            }
+            
+            .story-content {
+                font-size: 1rem;
+            }
+            
+            .story-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .story-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress"></div>
+
+    <!-- Top Navigation - EXACTLY LIKE HOMEPAGE -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo-placeholder">LOGO</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mikael.teo/" target="_blank" class="social-icon">
+                    <span>IG</span>
+                    <span>Follow</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fixed Story Navigation Arrows -->
+    <div class="story-nav prev">
+        <a href="#" class="story-nav-link">
+            <span class="nav-arrow">←</span>
+            <div class="nav-text">
+                <span class="nav-label">Previous</span>
+                <span class="nav-title">Dear Ying</span>
+            </div>
+        </a>
+    </div>
+    
+    <div class="story-nav next">
+        <a href="#" class="story-nav-link">
+            <div class="nav-text">
+                <span class="nav-label">Next</span>
+                <span class="nav-title">More Stories Soon</span>
+            </div>
+            <span class="nav-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- Story Container -->
+    <div class="story-container">
+        <div class="story-header">
+            <h1 class="story-title">The Woman of Phnom Penh</h1>
+            <p class="story-author">by Mikael Teo</p>
+            <div class="story-meta">
+                <span>Short Story</span>
+                <span>15 min read</span>
+                <span>Published 2024</span>
+            </div>
+        </div>
+
+        <div class="story-content">
+            <p>Her name, carved into the oblong-ish brown headstone, crude san serif-like. Liverworts and moss reside on it, making it green from certain angles. A name Ma Nith cannot utter. Her eyes burn into it. Her stoic skin tightens with anger, anguish. Can't believe she is actually here, in her presence. A direct flight to Phnom Penh from Atlanta; nineteen hours and one minute is a long time to ferment and manifest the turmoil she buried in the tenebrous pit of her heart for thirty one years. A concerned flight attendant kept asking if she was afraid of flying.</p>
+            
+            <p>Tiffany treads softly to Ma Nith's side and observes her silently. Curiosity does not get the best of her today, for she had never seen this side of her before; lips twisted with misery, eyes vacant, neck rigid and an air of defeat about her.</p>
+            
+            <p>"Are you alright Mama?" Tiffany smiles tenderly at her.</p>
+            
+            <p>"I'm fine, my love," Ma Nith replies, sensing her eight year old daughter's escalating anxiety.</p>
+            
+            <p>"Who's that?" Tiffany points at the headstone with Khmer inscriptions.</p>
+            
+            <p>"No one. Don't point love, it brings bad fortune."</p>
+            
+            <p>"Okay."</p>
+            
+            <p>"Go on now, give Mama a minute."</p>
+            
+            <p>"Sure!" Tiffany skips away to count all the tombstones for the fourth time. There're not many, just two hundred piles of bones lying in the basement. This is not a popular cemetery; a dreary sticky six hour drive from the city. Ma Nith gazes fondly at her half-black half-Cambodian daughter, loving her sensitivity and innocence. Back on the headstone, the gaze hardens. When she was at a similar age of eight years, her life utterly halted.</p>
+            
+            <p>#</p>
+            
+            <p>Harvesting rice with rusty sickles in the soggy fields with her skinny elder brother, an unknown black car stopped outside her house on the dusty track in 1989. Her father, half paralyzed from illness, mother tending to him, the only money they had was the three dollars her brother and she earned from gathering the grains daily. On a good day, they would manage four dollars, but their little spines would sore and ache, and their skin itchy, swollen and broken from the multiple malarial mosquito bites and they would cry to sleep. Before the sun rose the next day, they would leave the dingy shack for the fields barefoot, in tattered, soiled long sleeved shirts and slacks. That was the only life Ma Nith knew until mother yelled out her name on this day and she went running into the house. She was instructed to leave with a neat, rich looking man, whose scalp you could see with his greasy hair gelled back, to 'go get something for the house'.</p>
+            
+            <p>#</p>
+            
+            <p>Ma Nith unclenches her fists, leans on her knees and pulls in a few deep breaths. There is no way out of this. She had waited, night terrored and tormented herself and people around her for far too long. Unbending her back, she stands up taut and tall and confronts her birth mother.</p>
+            
+            <p>Do you know how painful it was for me? I was a toy to hundreds of coarse, callus-clad, grubby hands. A chew toy to those disgusting pigs with cheap alcohol breath. Do you know that when I turned fourteen, they stitched me up because I was worth more as a 'virgin'? The worst pain was in knowing how you sold me for two hundred dollars and was prepared to not ever see me again. Me, your blood and flesh! You didn't even look at me when I smiled and waved from the car's rear window. This was the pain that kept me going so I could live to see you again. So I can ask you - why? Because I picked fewer baskets of rice than my brother? Why? Why didn't you seek another way? How could you? Did you not feel joy when I was inside you? Were you not happy when I entered this world? Why was I that easy to give up? Why, why? You cannot answer me now, but God damn it, I have the right to ask!</p>
+            
+            <p>Her bosom heaving wildly, Ma Nith spits on the headstone and watches it trickle down her mother's wretched name.</p>
+            
+            <p>Ma Nith feels a reposeful arm slowly slip around her waist. She glances down at a concerned little face with silky hair, which her tear lands on. Tiffany gazes at her inquisitively, scared, eyebrows scrunched and lips pursed. But Ma Nith is without strength, her arms limp by her side. She repositions her feet in case she collapses. Mothers are supposed to impart wisdom to their little girls, from their experiences and regrets, and especially pitfalls; Ma Nith considers that Tiffany deserves some answers. But how do you begin to explain it all? The sky lowers, the air heavy in her lungs, oh how she loathes herself for this. Even without graphic details, the story would have a horrifying and traumatic effect on Tiffany.</p>
+            
+            <p>How does she filter the filth for an abridged version? Like when the Cambodian pimp expired her youth, he sold her to a Chinese man as a mail-order bride, and she arrived in Jiangsu as a fifteen year old, only to be placed in a whorehouse to recuperate her eight thousand dollar selling price? Or two years later, when Ma Nith broke out from the foul, waste-reeking house with the help of an exchange student, who arranged for her safe passage to Georgia, and fed her, cleaned her, paid for her bar exam and eventually married her?</p>
+            
+            <p>Ma Nith grips Tiffany's shoulder against her hip tightly, and weeps bitterly, purging the shame and self-blame like an exorcism. Her body grows softer yet stronger. Tiffany does not comprehend, but her heart feels like this enormous hill and she starts sobbing. The wind rises up with a chilly tone, dried leaves swirl and gather at their feet forming an orange fortress around them.</p>
+            
+            <p>"No one will ever love you more than I, Tiffany. No one."</p>
+
+            <p>THE END</p>
+        </div>
+    </div>
+
+    <!-- Story Footer -->
+    <div class="story-footer">
+        <div class="share-menu" id="shareMenu">
+            <a href="#" class="share-option" onclick="shareEmail()">Email</a>
+            <a href="#" class="share-option" onclick="shareFacebook()">Facebook</a>
+            <a href="#" class="share-option" onclick="shareWhatsApp()">WhatsApp</a>
+            <a href="#" class="share-option" onclick="shareTwitter()">Twitter</a>
+            <a href="#" class="share-option" onclick="copyLink()">Copy Link</a>
+        </div>
+        <a href="#" class="share-story" onclick="toggleShareMenu()">Share Story</a>
+    </div>
+
+    <!-- Newsletter Section - EXACTLY LIKE HOMEPAGE -->
+    <section class="subscribe-section">
+        <!-- BIG E-book cover at the very top -->
+        <div class="big-ebook-cover">FREE E-BOOK</div>
+        
+        <h2>Stay Connected</h2>
+        <p>Subscribe for a free short story collection and for updates on new stories, publications, and upcoming book releases. For other enquiries, please write to Mikaelteo@yahoo.com</p>
+        
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <script>
+        // Reading progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.reading-progress').style.width = scrolled + '%';
+        });
+
+        // Share functionality
+        function toggleShareMenu() {
+            const menu = document.getElementById('shareMenu');
+            menu.classList.toggle('active');
+        }
+
+        function shareEmail() {
+            const title = 'The Woman of Phnom Penh by Mikael Teo';
+            const url = window.location.href;
+            window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Check out this story: ' + url)}`;
+        }
+
+        function shareFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareWhatsApp() {
+            const title = 'The Woman of Phnom Penh by Mikael Teo';
+            const url = window.location.href;
+            window.open(`https://wa.me/?text=${encodeURIComponent(title + ' - ' + url)}`, '_blank');
+        }
+
+        function shareTwitter() {
+            const title = 'The Woman of Phnom Penh by Mikael Teo';
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Close share menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('shareMenu');
+            const button = document.querySelector('.share-story');
+            if (!menu.contains(e.target) && !button.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

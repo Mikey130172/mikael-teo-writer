@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Ying - Mikael Teo</title>
+    
+    <!-- Meta tags for social sharing -->
+    <meta name="description" content="I'm outside your door. The weather-beaten wind chime of faded bronze rods, wilfully suspended above the door, is silently still, as is the dry April air. A stalker in the house. But the tender kind. Letting go is hard, but inevitable.">
+    <meta name="author" content="Mikael Teo">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Dear Ying">
+    <meta property="og:description" content="I'm outside your door. The weather-beaten wind chime of faded bronze rods, wilfully suspended above the door, is silently still, as is the dry April air. A stalker in the house. But the tender kind. Letting go is hard, but inevitable.">
+    <meta property="og:author" content="Mikael Teo">
+    <meta property="article:author" content="Mikael Teo">
+    <meta property="article:published_time" content="2024-01-01">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dear Ying">
+    <meta name="twitter:description" content="I'm outside your door. The weather-beaten wind chime of faded bronze rods, wilfully suspended above the door, is silently still, as is the dry April air. A stalker in the house. But the tender kind. Letting go is hard, but inevitable.">
+    <meta name="twitter:creator" content="@mikaelteo">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f5dc 0%, #e8e8e8 100%);
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding-top: 80px;
+        }
+        
+        /* Top Navigation - EXACTLY LIKE HOMEPAGE */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 60px;
+            border-bottom: 1px solid rgba(102, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background: #660000;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 2px solid #A0522D;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #660000;
+            padding: 8px 15px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+            font-family: Georgia, serif;
+        }
+        
+        .social-icon:hover {
+            background: #A0522D;
+        }
+        
+        /* Story Navigation Arrows */
+        .story-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .story-nav.prev {
+            left: 20px;
+        }
+        
+        .story-nav.next {
+            right: 20px;
+        }
+        
+        .story-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(102, 0, 0, 0.9);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid #A0522D;
+            max-width: 140px;
+        }
+        
+        .story-nav-link:hover {
+            background: rgba(160, 82, 45, 0.9);
+            transform: scale(1.05);
+        }
+        
+        .nav-arrow {
+            font-size: 1rem;
+            color: #A0522D;
+        }
+        
+        .nav-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        
+        .nav-label {
+            font-size: 0.5rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-title {
+            font-size: 0.6rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        /* Story Container */
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .story-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #660000;
+        }
+        
+        .story-title {
+            font-size: 2.5rem;
+            color: #660000;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .story-author {
+            font-size: 1.1rem;
+            color: #A0522D;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .story-meta {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .story-content p:first-child {
+            margin-top: 0;
+        }
+        
+        .story-content p:last-child {
+            margin-bottom: 0;
+            text-align: center;
+            font-style: italic;
+            color: #660000;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+        
+        /* Navigation Footer */
+        .story-footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .share-story {
+            display: inline-block;
+            background: transparent;
+            color: #660000;
+            padding: 12px 30px;
+            border: 2px solid #660000;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .share-story:hover {
+            background: #660000;
+            color: white;
+        }
+        
+        .share-menu {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            padding: 15px;
+            margin-bottom: 10px;
+            min-width: 200px;
+        }
+        
+        .share-menu.active {
+            display: block;
+        }
+        
+        .share-option {
+            display: block;
+            background: transparent;
+            color: #660000;
+            padding: 8px 20px;
+            border: 1px solid #660000;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .share-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .share-option:hover {
+            background: #660000;
+            color: white;
+        }
+        
+        /* Subscribe Section - EXACTLY LIKE HOMEPAGE */
+        .subscribe-section {
+            padding: 60px 60px;
+            background: #660000;
+            text-align: center;
+        }
+        
+        .big-ebook-cover {
+            width: 195px;
+            height: 195px;
+            background: #f0f0e8;
+            border: 3px solid #A0522D;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #660000;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-section h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 300;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-family: Georgia, serif;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            font-size: 0.9rem;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+        }
+        
+        .subscribe-form button {
+            padding: 12px 25px;
+            background: #A0522D;
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .subscribe-form button:hover {
+            background: #8B4513;
+        }
+        
+        /* Reading Progress Indicator */
+        .reading-progress {
+            position: fixed;
+            top: 79px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #660000, #A0522D);
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 10px 20px;
+            }
+            
+            .story-container {
+                margin: 20px;
+                padding: 40px 20px;
+            }
+            
+            .story-title {
+                font-size: 2rem;
+            }
+            
+            .story-content {
+                font-size: 1rem;
+            }
+            
+            .story-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .story-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress"></div>
+
+    <!-- Top Navigation - EXACTLY LIKE HOMEPAGE -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo-placeholder">LOGO</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mikael.teo/" target="_blank" class="social-icon">
+                    <span>IG</span>
+                    <span>Follow</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fixed Story Navigation Arrows -->
+    <div class="story-nav prev">
+        <a href="#" class="story-nav-link">
+            <span class="nav-arrow">←</span>
+            <div class="nav-text">
+                <span class="nav-label">Previous</span>
+                <span class="nav-title">More Stories Soon</span>
+            </div>
+        </a>
+    </div>
+    
+    <div class="story-nav next">
+        <a href="#" class="story-nav-link">
+            <div class="nav-text">
+                <span class="nav-label">Next</span>
+                <span class="nav-title">The Woman of Phnom Penh</span>
+            </div>
+            <span class="nav-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- Story Container -->
+    <div class="story-container">
+        <div class="story-header">
+            <h1 class="story-title">Dear Ying</h1>
+            <p class="story-author">by Mikael Teo</p>
+            <div class="story-meta">
+                <span>Short Story</span>
+                <span>12 min read</span>
+                <span>Published 2024</span>
+            </div>
+        </div>
+
+        <div class="story-content">
+            <p>I'm outside your door.</p>
+            
+            <p>The weather-beaten wind chime of faded bronze rods, wilfully suspended above the door, is silently still, as is the dry April air. No one in sight in the common corridor, not that it should be of great concern. I have been here many times. I know your routine. You're at the butcher right this minute, haggling politely though you know it never works, but you feel it's your duty to give respect to money and save it from rapacious transactions as much as possible; more pork ribs for the money - Every Wednesday at 10.16am sharp without fail. The pace of your footsteps and your breathing are synchronized and consistent. I have counted it. In my head. The blue metal gate is locked, and the main wooden door is not. I enter the house anyway.</p>
+
+            <p>I'm inside your home.</p>
+            
+            <p>Everything is unchanged in the living room - the floor, the furniture, the television, and turntable. I browse the record collection, which includes Teresa Teng, Leslie Cheung, and Fei Yu Ching; our favorite singers, that we danced to slowly as if there was no such thing as time. My sense of smell is non-existent, oh what I would give to have a short whiff of these old, dusty vinyl records. I put one on for good times, the analog static cackles and 'The moon represents my heart' fills the living room like an old memory. I slowly make my way around the living room, and notice our pictures are no longer displayed on the old teak side cadenza, where a metal plate overfills with loose change, and keys. It must have hurt you more than me, the way I left. This space feels particularly small today. I glide the longer side of the rectangular living room. Four and a half seconds. I measure the shorter side and it's three and a half seconds. Seems right and feels wrong. Leave it be, know your age, you old man. Haha, that's what you used to call me; an old man, even when I was young.</p>
+            
+            <p>Do you recall buying that second-hand book at a second-hand flea market? I never liked flea markets for the simple dread of dust and mites, while you were obsessed with flea markets and books. But you know that book, which gave you the time of your life when you told all our friends about it - A mental age quiz book which resulted in you scoring sixty four as your real mental age while mine was twelve. You were ironically juvenile in announcing this finding to our friends, who chortled and scoffed at my expense, my juvenile mental age of twelve. But it made you happy, and seeing your face light up was worth any embarrassment on my part. And you knew that too.</p>
+            
+            <p>Residing still in the corner to the kitchen entrance, is this olive green rattan chair which was another bargain from the flea market which you had to have. You read every book you own in it. I often reminisce about the comforting silence of the weekends when you read, and I watched TV with the sound turned down. Now, my old back creaks no more while I bend to look at your McDonald's soft toy collection in the glass cabinet. Mostly pristine Hello Kittys in unopened wrappers on the second shelf. On the first shelf, neatly assembled are books you are currently reading. Hemingway, Jane Austen, Faulkner and Chinese novels I cannot understand. Books you had completed were shrink-wrapped and stored away in the storeroom. Such was your love for them. I wished I read more, but spending those Saturdays and Sundays switching between the TV and your sun-kissed face buried in your book in all manner of emotions, was true bliss that warmed my heart.</p>
+
+            <p>I'm inside your bedroom.</p>
+            
+            <p>The bedroom where you sleep and sew is still an immaculate mess. Many times, I watched women in their middle age fuss in and out to try on dresses crafted by your small hands. They came apprehensive, but left assuredly happy. Each time they leave with their brown paper bag of new clothes, and renewed hope of looking their best for the world and their restless husbands, you would see them at the door and when they had gone, turn to me with a smile relieved and gratified. I was envious as I had no such passion in my job as a mechanical engineer. It was just a job for me. Some day machines will take over anyway. Your trusty old maroon Singer sewing machine has a thread spool attached; you are still doing what you love, for people who love you and whom you love. New dresses hang from a clothes rack, ready for collection, in time for Lunar New Year. You've really kept yourself busy. That's good. I move out of your bedroom, and toward the kitchen.</p>
+
+            <p>I'm inside your kitchen.</p>
+            
+            <p>The glorious morning sun streams into the kitchen through the four small windows with tired green steel frames and bounces off the yellowed white tiles with scenes of a splatter of ducks at a lake on the wall. Again nothing's changed though it's been seven years. I peek into the glass windows on the blue overhead cabinets - Instant Milo satchels, Khong Guan biscuits, and your favorite Tieguanyin Chinese tea in a dainty yellow metal tin. I imagine the taste and how it commands your mind to alertness within minutes. A true punch to the head when one needs to 'wake up' indeed. I am awake all the time now, so do not need such a luxury. On the ancient emerald dining table, amidst the ancient tray of Chinese tea cups and other snacks, is the Bonsai I love dearly; not as much as I do you of course my dear, but it was the first and only plant of 'longevity' we bought many years ago. It outlasted me even.</p>
+            
+            <p>The nondescript white round Citizen quartz clock above the pale green refrigerator says 10.33am. You won't be back for another hour. I imagine your sweet words and gentle manner making its rounds at the wet market, delighting the paths of all you cross. Nobody ever had a bad thing to say to you or about you, you're that wonderful. Before I left, I often pondered if I was the luckiest man on earth. From my vantage point now, that question is aptly laid to rest. How I wish, you do not hate me. Do you hate me? Still? I look at the tray of tea cups again, and notice there are two. I feel hopeful again. Perhaps I exist? Emotionally, with you?</p>
+
+            <p>I'm inside your toilet.</p>
+            
+            <p>In this vintage three room flat, where the only toilet is situated in the kitchen, I enter to the fragrance of your lavender Pantene shampoo. The sink is where I see them – my eyes would well up if they could – my blue toothbrush leans on your pink one, like a tired aged old man against a pillar of strength. The sensation that washes over me feels very strange and warm. A combination of happiness, guilt and regrets. You have to let me go, Ying. I have been selfish. I swore never to leave first, that you will never be alone. For what man wishes for his bride a permanent departure and for himself, perpetual despair and a never-ending loop of heartache?</p>
+
+            <p>The door opens. You're back early. I'm not hiding anymore, if you wish to see me, feel me. They are beckoning to me again. Time is running out. Your noiseless footsteps take you right into the kitchen, to the refrigerator. I am by the window, hovering near the ceiling, watching you store away the meat, vegetables and fruits. The wrinkles that line your delicate face of seventy years, your shoulder length hair in a bun, your soft kind eyes, your petite frame with petite but strong arms. Your back is taut, unbent and there's no limp in your legs. You look well, Ying.</p>
+
+            <p>That day, seven years ago, you told me, 'Bring an umbrella', as I left the house for tea with Ah Koon. And what did this sixty-six year old man do? Grunted something, ignored his well meaning wife and went on his way without one, because it was cumbersome to carry a large umbrella to the coffee shop. Dark clouds gave way to torrential rain as I waited for the green man. Without shelter, I took a chance and rushed across the road, and the last thing I saw was a red car.</p>
+            
+            <p>I was selfish, and obstinate, and it robbed us of time and memories. It pained me every time I had a chance to look at you. But you truly look well, my dear sweet Ying. Be well always. I can't watch over you anymore, as I have to go. They promised there are good meals there. Think of me always.</p>
+
+            <p>I am outside your door.</p>
+
+            <p>The air is very still. Ying turns towards the door as the wind chime tinkles.</p>
+
+            <p>The End.</p>
+        </div>
+    </div>
+
+    <!-- Story Footer -->
+    <div class="story-footer">
+        <div class="share-menu" id="shareMenu">
+            <a href="#" class="share-option" onclick="shareEmail()">Email</a>
+            <a href="#" class="share-option" onclick="shareFacebook()">Facebook</a>
+            <a href="#" class="share-option" onclick="shareWhatsApp()">WhatsApp</a>
+            <a href="#" class="share-option" onclick="shareTwitter()">Twitter</a>
+            <a href="#" class="share-option" onclick="copyLink()">Copy Link</a>
+        </div>
+        <a href="#" class="share-story" onclick="toggleShareMenu()">Share Story</a>
+    </div>
+
+    <!-- Newsletter Section - EXACTLY LIKE HOMEPAGE -->
+    <section class="subscribe-section">
+        <!-- BIG E-book cover at the very top -->
+        <div class="big-ebook-cover">FREE E-BOOK</div>
+        
+        <h2>Stay Connected</h2>
+        <p>Subscribe for a free short story collection and for updates on new stories, publications, and upcoming book releases. For other enquiries, please write to Mikaelteo@yahoo.com</p>
+        
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <script>
+        // Reading progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.reading-progress').style.width = scrolled + '%';
+        });
+
+        // Share functionality
+        function toggleShareMenu() {
+            const menu = document.getElementById('shareMenu');
+            menu.classList.toggle('active');
+        }
+
+        function shareEmail() {
+            const title = 'Dear Ying by Mikael Teo';
+            const url = window.location.href;
+            window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Check out this story: ' + url)}`;
+        }
+
+        function shareFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareWhatsApp() {
+            const title = 'Dear Ying by Mikael Teo';
+            const url = window.location.href;
+            window.open(`https://wa.me/?text=${encodeURIComponent(title + ' - ' + url)}`, '_blank');
+        }
+
+        function shareTwitter() {
+            const title = 'Dear Ying by Mikael Teo';
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Close share menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('shareMenu');
+            const button = document.querySelector('.share-story');
+            if (!menu.contains(e.target) && !button.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
