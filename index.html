@@ -108,27 +108,18 @@
             position: relative;
         }
         
-        .hero-background {
+       .hero-background {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: #e0e0e0;
-            border: 3px solid #660000;
-            opacity: 0.1;
+            background: url('2.png') center/cover;
+            opacity: 0.3;
         }
         
         .hero-background::after {
-            content: 'Background Image Placeholder';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #660000;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: center;
+            content: '';
         }
         
         .hero-content {
