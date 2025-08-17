@@ -98,7 +98,22 @@
             max-width: 1400px;
             margin: 0 auto;
         }
+          /* Image Only Section */
+        .image-only-section {
+            min-height: 100vh;
+            position: relative;
+            margin-top: -80px;
+        }
         
+        .image-only-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('YOUR-IMAGE-NAME.png') center/cover;
+            opacity: 1;
+        }
         /* Hero About Section */
         .hero-about {
             min-height: 100vh;
@@ -544,6 +559,11 @@
         </div>
     </nav>
 
+     <!-- New Image Section -->
+    <section class="image-only-section">
+        <div class="image-only-background"></div>
+    </section>
+    
     <!-- Hero About Section -->
     <section class="hero-about">
         <div class="hero-background"></div>
