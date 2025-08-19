@@ -532,7 +532,7 @@
             <a href="#" class="share-option" onclick="shareTwitter()">Twitter</a>
             <a href="#" class="share-option" onclick="copyLink()">Copy Link</a>
         </div>
-<button class="share-story" onclick="toggleShareMenu()">Share Story</button>
+<button class="share-story" onclick="toggleShareMenu(event)">Share Story</button>
     </div>
 
     <!-- Newsletter Section - EXACTLY LIKE HOMEPAGE -->
@@ -558,10 +558,11 @@
         });
 
         // Share functionality
-        function toggleShareMenu() {
-            const menu = document.getElementById('shareMenu');
-            menu.classList.toggle('active');
-        }
+        function toggleShareMenu(event) {
+    event.preventDefault();
+    const menu = document.getElementById('shareMenu');
+    menu.classList.toggle('active');
+}
 
         function shareEmail() {
             const title = 'The Woman of Phnom Penh by Mikael Teo';
