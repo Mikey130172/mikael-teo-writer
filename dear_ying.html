@@ -386,7 +386,7 @@
         /* Responsive */
        @media (max-width: 768px) {
             .top-nav {
-                padding: 10px 20px;
+                padding: 5px 20px;
             }
             
             .story-container {
@@ -529,8 +529,7 @@
             <a href="#" class="share-option" onclick="shareTwitter()">Twitter</a>
             <a href="#" class="share-option" onclick="copyLink()">Copy Link</a>
         </div>
-        <a href="#" class="share-story" onclick="toggleShareMenu()">Share Story</a>
-    </div>
+<button class="share-story" onclick="toggleShareMenu(event)">Share Story</button>    </div>
 
     <!-- Newsletter Section - EXACTLY LIKE HOMEPAGE -->
     <section class="subscribe-section">
@@ -555,10 +554,11 @@
         });
 
         // Share functionality
-        function toggleShareMenu() {
-            const menu = document.getElementById('shareMenu');
-            menu.classList.toggle('active');
-        }
+       function toggleShareMenu(event) {
+    event.preventDefault();
+    const menu = document.getElementById('shareMenu');
+    menu.classList.toggle('active');
+}
 
         function shareEmail() {
             const title = 'Dear Ying by Mikael Teo';
